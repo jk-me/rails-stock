@@ -14,4 +14,6 @@
   <% end %>
 
 </div>
-<%= @body %>
+<% @account.stocks.each do |s| %>
+  <p><%= "#{s.symbol}, #{s.shares} shares" %></p>
+<% end %>

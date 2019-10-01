@@ -38,9 +38,12 @@ class AccountsController < ApplicationController
 
     stock = body["Global Quote"]
     price = stock["05. price"]
-
-    if @account.balance < (price * params[:shares])
-
+    if @account.balance.to_f > (price.to_f * params[:shares].to_f)
+      s = Stock.where(account_id: @account.id).find_or_create_by(symbol: params[:symbol])
+      s.shares += params[:shares].to_i
+      s.save
+      @account.balance = @account.balance.to_f - (price.to_f * params[:shares].to_f)
+      @account.save
     end
     render :show
   end
