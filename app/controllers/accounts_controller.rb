@@ -23,6 +23,12 @@ class AccountsController < ApplicationController
       flash[:error]="You may not access another user's data"
     end
     @account = current_account
+    @stock = Stock.new
+  end
+
+  def alphavantage
+    # https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo
+
   end
 
   private

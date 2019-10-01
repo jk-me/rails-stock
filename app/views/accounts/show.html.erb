@@ -1,2 +1,16 @@
 <p><%= @account.email %></p>
 <p><%= @account.balance %></p>
+
+<div class='account-page'>
+  <p><%= @account.stocks[0].symbol%></p>
+  <p><%= @account.stocks[0].shares%></p>
+
+  <hr>
+
+  <%= form_for @stock, url: api_path do |f| %>
+    <p>Symbol: <%= f.text_field :symbol %></p>
+    <p>No. Shares: <%= f.number_field :shares %></p>
+    <%= f.submit "Purchase" %>
+  <% end %>
+
+</div>
