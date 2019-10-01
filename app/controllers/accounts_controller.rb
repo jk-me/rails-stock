@@ -28,7 +28,21 @@ class AccountsController < ApplicationController
 
   def alphavantage
     # https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo
+    @account = current_account
+    resp = Faraday.get "https://www.alphavantage.co/query" do |req|
+      req.params["function"] = "GLOBAL_QUOTE"
+      req.params["symbol"] = params[:symbol]
+      req.params["apikey"] = 'key'
+    end
+    body = JSON.parse(resp.body)
 
+    stock = body["Global Quote"]
+    price = stock["05. price"]
+
+    if @account.balance < (price * params[:shares])
+
+    end
+    render :show
   end
 
   private
