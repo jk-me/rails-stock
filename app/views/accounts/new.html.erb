@@ -1,13 +1,15 @@
-<h1>Sign Up</h1>
+<div class="register">
+  <h1>Sign Up</h1>
 
 
-<%= form_for @account do |f| %>
-  
-  <p>Full Name: <%= f.text_field :name %></p>
+  <%= form_for @account do |f| %>
 
-  <p>Email: <%= f.text_field :email %></p>
+    <p>Full Name: <%= f.text_field :name %></p>
 
-  <p>Password: <%= f.password_field :password %></p>
+    <p>Email: <%= f.text_field :email %></p>
 
-  <%= f.submit %>
-<% end %>
+    <p>Password: <%= f.password_field :password %></p>
+
+    <%= f.submit %>
+  <% end %>
+</div>

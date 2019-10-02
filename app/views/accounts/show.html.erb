@@ -1,13 +1,15 @@
 <p><%= @account.email %></p>
 <div class="page-name">
   <span class="page-title">Portfolio</span>
-  <span> ( $<%= @account.balance %> )</span>
+  <span id="port_value"> ( $<%= @account.balance %> )</span>
 </div>
 
 <div class="container">
   <div class="col">
     <% @account.stocks.each do |s| %>
-      <p><%= "#{s.symbol}, #{s.shares} shares" %></p>
+      <div>
+        <p><%= "#{s.symbol}, #{s.shares} shares" %></p>
+      </div>
     <% end %>
   </div>
 
