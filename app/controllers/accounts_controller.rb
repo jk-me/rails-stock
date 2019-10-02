@@ -48,6 +48,26 @@ class AccountsController < ApplicationController
     redirect_to account_path(@account)
   end
 
+  def stocks
+    if !session[:account_id]
+      redirect_to new_session_path
+      return
+    end
+    account = current_account
+    stocks = account.stocks
+    render json: stocks
+  end
+
+  def transactions
+    if !session[:account_id]
+      redirect_to new_session_path
+      return
+    end
+    account = current_account
+    transactions = account.transactions
+    render json: transactions
+  end
+
   private
 
   def account_params

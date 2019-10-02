@@ -1,24 +1,24 @@
-<p><%= @account.email %></p>
-<div class="page-name">
-  <span class="page-title">Portfolio</span>
-  <span id="port_value"> ( $<%= @account.balance %> )</span>
+<p>Welcome, <%= @account.name %>!</p>
+<div class='page-name'>
+  <span class='page-title'>Portfolio</span>
+  <span id='port_value'> ( $<%= @account.balance %> )</span>
 </div>
 
-<div class="container">
-  <div class="col">
+<div class='container'>
+  <div class='col'>
     <% @account.stocks.each do |s| %>
       <div>
-        <p><%= "#{s.symbol}, #{s.shares} shares" %></p>
+        <p><%= '#{s.symbol}, #{s.shares} shares' %></p>
       </div>
     <% end %>
   </div>
 
-  <div class="col">
+  <div class='col'>
     <p>Balance: $<%= @account.balance %></p>
-    <%= form_tag(api_path, method:"post") do %>
+    <%= form_tag(api_path, method:'post') do %>
       <p>Symbol: <%= text_field_tag :symbol %></p>
       <p>No. Shares: <%= number_field_tag :shares %></p>
-      <%= submit_tag "Purchase" %>
+      <%= submit_tag 'Purchase' %>
     <% end %>
   </div>
 
