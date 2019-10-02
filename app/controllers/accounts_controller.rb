@@ -32,7 +32,7 @@ class AccountsController < ApplicationController
     resp = Faraday.get "https://www.alphavantage.co/query" do |req|
       req.params["function"] = "GLOBAL_QUOTE"
       req.params["symbol"] = params[:symbol]
-      req.params["apikey"] = Rails.application.credentials.alphav #remove key
+      req.params["apikey"] = Rails.application.credentials.alphav
     end
     body = JSON.parse(resp.body)
 
@@ -45,7 +45,7 @@ class AccountsController < ApplicationController
       @account.balance = @account.balance.to_f - (price.to_f * params[:shares].to_f)
       @account.save
     end
-    redirect_to account_path(current_account)
+    redirect_to account_path(@account)
   end
 
   private
