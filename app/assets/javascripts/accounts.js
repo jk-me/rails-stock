@@ -34,33 +34,22 @@ function showPortfolio(){
   $('.show-p').on('click', function(e){
     e.preventDefault
     let id = $(this).data('account')
-    let pagehtml
+    let portfolioVal = 0
     $.get('/stocks', function(sjson){  //first column, stock data and api data
       console.log(sjson, sjson[0].symbol)
-      // for (const stock of sjson){
-        $.post("/alpharesp",{
-            symbol: sjson[0].symbol
-          }
-          , function(apijson){
-            console.log(apijson)
-            console.log(apijson['Global Quote']['01. symbol'])
+      // let stock = sjson[0]
+      for (const stock of sjson){
+        $.post("/alpharesp",{symbol: stock.symbol}, function(apijson){
+          let val = parseFloat(apijson['Global Quote']['05. price']) * parseFloat(stock.shares)
+          portfolioVal += val
+          $(`.${stock.id}`).text(`${stock.symbol}, ${stock.shares} shares -------- ${val}`)
+          console.log(apijson)
+          // console.log(apijson['Global Quote']['05. price'])
+          // console.log(apijson['Global Quote']['01. symbol'])
         })
-      // }
-      // let titlehtml = `<span class='page-title'>Portfolio</span> <span id='port_value'> ( ${} )</span>`
+      }
 
-      // $('.page-name').html(titlehtml)
     })
-//     $.get('/account/'+id+'.json', function(json){ //second column, account data for form
-//       pagehtml = `<div class="col">
-//     <p>Balance: $${json.balance}</p>
-//     <form action="/alphavantage" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="AOa8fXpbF/IcEy52ALnVXYWNUr1kvaF5ZUS1COLzt0mZwT2A9P/AwmSkWy+gh5HWVA5M2X1x66wkssR2x6H6lw==">
-//       <p>Symbol: <input type="text" name="symbol" id="symbol"></p>
-//       <p>No. Shares: <input type="number" name="shares" id="shares"></p>
-//       <input type="submit" name="commit" value="Purchase" data-disable-with="Purchase">
-// </form>  </div>`
-//     })
-
-
   })
 
 }

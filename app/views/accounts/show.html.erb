@@ -8,7 +8,7 @@
   <div class='col'>
     <% @account.stocks.each do |s| %>
       <div>
-        <p><%= "#{s.symbol}, #{s.shares} shares" %></p>
+        <p class="<%= s.id %> stock"><%= "#{s.symbol}, #{s.shares} shares" %></p>
       </div>
     <% end %>
   </div>
