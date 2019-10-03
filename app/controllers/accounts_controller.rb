@@ -21,9 +21,13 @@ class AccountsController < ApplicationController
     end
     if params[:id] != current_account.id.to_s
       flash[:error]="You may not access another user's data"
-      redirect_to account_path(current_account)
+      # redirect_to account_path(current_account)
     end
     @account = current_account
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @account}
+    end
   end
 
   def alphavantage
