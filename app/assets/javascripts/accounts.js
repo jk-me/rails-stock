@@ -36,19 +36,20 @@ function showPortfolio(){
     let id = $(this).data('account')
     let pagehtml
     $.get('/stocks', function(sjson){  //first column, stock data and api data
-      for (const stock of sjson){
-        $.post('/alphavantage',
-          {}
+      console.log(sjson)
+      // for (const stock of sjson){
+        $.post("https://www.alphavantage.co/query",{
+            function: 'GLOBAL_QUOTE',
+            symbol: sjson[0].symbol,
+            apikey: Rails.application.credentials.alphav
+          }
           , function(apijson){
-
+            console.log(apijson['Global Quote']['01. symbol'])
         })
-      }
-
-
-
+      // }
       // let titlehtml = `<span class='page-title'>Portfolio</span> <span id='port_value'> ( ${} )</span>`
 
-      $('.page-name').html(titlehtml)
+      // $('.page-name').html(titlehtml)
     })
     $.get('/account/'+id+'.json', function(json){ //second column, account data for form
       pagehtml = `<div class="col">
