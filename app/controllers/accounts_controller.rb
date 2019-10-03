@@ -70,9 +70,12 @@ class AccountsController < ApplicationController
       redirect_to new_session_path
       return
     end
-    account = current_account
-    transactions = account.transactions
-    render json: transactions
+    @account = current_account
+    @transactions = @account.transactions
+    respond_to do |f|
+      f.html {render :transactions}
+      f.json {render json: @transactions}
+    end
   end
 
   private

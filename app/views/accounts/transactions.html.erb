@@ -1,0 +1,12 @@
+<p>Welcome, <%= @account.name %>!</p>
+<div class='page-name'>
+  <span class='page-title'>Transactions</span>
+</div>
+
+  <div>
+    <% @transactions.each do |el| %>
+      <div>
+        <p><%= "BUY (#{el.symbol}) - #{el.shares} @ #{el.price} ---- #{el.created_at}" %></p>
+      </div>
+    <% end %>
+  </div>
