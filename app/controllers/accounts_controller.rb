@@ -42,6 +42,9 @@ class AccountsController < ApplicationController
       s = Stock.where(account_id: @account.id).find_or_create_by(symbol: params[:symbol])
       s.shares = s.shares ? s.shares += params[:shares].to_i : params[:shares].to_i
       s.save
+
+      t = Transaction.create({account_id: @account.id, symbol:params[:symbol], shares:params[:shares], price:price})
+
       @account.balance = @account.balance.to_f - (price.to_f * params[:shares].to_f)
       @account.save
     end

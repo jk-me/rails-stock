@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#logout', as: 'logout'
   post '/alphavantage', to: 'accounts#alphavantage', as: 'api'
   get '/stocks', to: 'accounts#stocks', as: 'acc_stocks'
-  get '/transactions', to: 'account#transactions', as: 'acc_trans'
+  get '/transactions', to: 'accounts#transactions', as: 'acc_trans'
   resources :accounts
 
   resources :sessions, only: [:new, :create]
