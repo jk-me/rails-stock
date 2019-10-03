@@ -5,7 +5,7 @@ $(function(){
   console.log('js loaded')
   updateVal()
   // showTransactions()
-  showPortfolio()
+  // showPortfolio()
 })
 
 function updateVal(){
@@ -30,25 +30,29 @@ function showTransactions(){ //extra
   })
 }
 
-function showPortfolio(){
-  $('.show-p').on('click', function(e){
-    e.preventDefault
-    let id = $(this).data('account')
+function updateVal(){
+  $('.update').on('click', function(e){
+    e.preventDefault()
+    // let id = $(this).data('account')
     let portfolioVal = 0
     $.get('/stocks', function(sjson){  //first column, stock data and api data
       console.log(sjson, sjson[0].symbol)
-      // let stock = sjson[0]
+      let stock = sjson[0]
       for (const stock of sjson){
         $.post("/alpharesp",{symbol: stock.symbol}, function(apijson){
           let val = parseFloat(apijson['Global Quote']['05. price']) * parseFloat(stock.shares)
           portfolioVal += val
           $(`.${stock.id}`).text(`${stock.symbol}, ${stock.shares} shares -------- ${val}`)
           console.log(apijson)
+          console.log(val)
+          console.log(portfolioVal)
+          $('#port-value').text(`($${portfolioVal})`)
+
           // console.log(apijson['Global Quote']['05. price'])
           // console.log(apijson['Global Quote']['01. symbol'])
         })
+      console.log(portfolioVal)
       }
-
     })
   })
 

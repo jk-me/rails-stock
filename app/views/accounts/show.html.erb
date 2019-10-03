@@ -1,9 +1,10 @@
 <p>Welcome, <%= @account.name %>!</p>
 <div class='page-name'>
   <span class='page-title'>Portfolio</span>
-  <span id='port_value'> ( $<%= @account.balance %> )</span>
+  <span id='port-value'> ( $<%= @account.balance %> )</span>
 </div>
-
+<!-- <a href="#" class='update'>Update Portfolio Value</a> -->
+<%= link_to 'Update', '#', class:'update' %>
 <div class='container'>
   <div class='col'>
     <% @account.stocks.each do |s| %>
