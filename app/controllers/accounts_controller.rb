@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only:[:alpharesp]
   def new #register new account
     @account = Account.new
   end
@@ -53,6 +53,18 @@ class AccountsController < ApplicationController
       @account.save
     end
     redirect_to account_path(@account)
+  end
+
+  def alpharesp
+    # @account = current_account
+    # byebug
+    resp = Faraday.get "https://www.alphavantage.co/query" do |req|
+      req.params["function"] = "GLOBAL_QUOTE"
+      req.params["symbol"] = params[:symbol]
+      req.params["apikey"] = Rails.application.credentials.alphav
+    end
+    body = JSON.parse(resp.body)
+    render json: body
   end
 
   def stocks

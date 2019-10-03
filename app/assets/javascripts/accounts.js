@@ -4,7 +4,7 @@
 $(function(){
   console.log('js loaded')
   updateVal()
-  showTransactions()
+  // showTransactions()
   showPortfolio()
 })
 
@@ -12,7 +12,7 @@ function updateVal(){
 
 }
 
-function showTransactions(){
+function showTransactions(){ //extra
   $('.show-t').on('click', function(e){
     e.preventDefault()
     $('.page-name').html(`<span class='page-title'>Transactions</span>`)
@@ -36,14 +36,13 @@ function showPortfolio(){
     let id = $(this).data('account')
     let pagehtml
     $.get('/stocks', function(sjson){  //first column, stock data and api data
-      console.log(sjson)
+      console.log(sjson, sjson[0].symbol)
       // for (const stock of sjson){
-        $.post("https://www.alphavantage.co/query",{
-            function: 'GLOBAL_QUOTE',
-            symbol: sjson[0].symbol,
-            apikey: Rails.application.credentials.alphav
+        $.post("/alpharesp",{
+            symbol: sjson[0].symbol
           }
           , function(apijson){
+            console.log(apijson)
             console.log(apijson['Global Quote']['01. symbol'])
         })
       // }
@@ -51,15 +50,15 @@ function showPortfolio(){
 
       // $('.page-name').html(titlehtml)
     })
-    $.get('/account/'+id+'.json', function(json){ //second column, account data for form
-      pagehtml = `<div class="col">
-    <p>Balance: $${json.balance}</p>
-    <form action="/alphavantage" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="AOa8fXpbF/IcEy52ALnVXYWNUr1kvaF5ZUS1COLzt0mZwT2A9P/AwmSkWy+gh5HWVA5M2X1x66wkssR2x6H6lw==">
-      <p>Symbol: <input type="text" name="symbol" id="symbol"></p>
-      <p>No. Shares: <input type="number" name="shares" id="shares"></p>
-      <input type="submit" name="commit" value="Purchase" data-disable-with="Purchase">
-</form>  </div>`
-    })
+//     $.get('/account/'+id+'.json', function(json){ //second column, account data for form
+//       pagehtml = `<div class="col">
+//     <p>Balance: $${json.balance}</p>
+//     <form action="/alphavantage" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="AOa8fXpbF/IcEy52ALnVXYWNUr1kvaF5ZUS1COLzt0mZwT2A9P/AwmSkWy+gh5HWVA5M2X1x66wkssR2x6H6lw==">
+//       <p>Symbol: <input type="text" name="symbol" id="symbol"></p>
+//       <p>No. Shares: <input type="number" name="shares" id="shares"></p>
+//       <input type="submit" name="commit" value="Purchase" data-disable-with="Purchase">
+// </form>  </div>`
+//     })
 
 
   })
