@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
   */
-
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
+  // @import "bootstrap/variables";
+  // @import "bootstrap/mixins";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body{
-  margin: 20px 80px 0px 80px;
+  margin: 50px 80px 0px 80px;
 }
 
 .container{

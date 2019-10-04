@@ -1,12 +1,13 @@
 <p>Welcome, <%= @account.name %>!</p>
-<div class='page-name'>
-  <span class='page-title'>Portfolio</span>
-  <span id='port-value'></span>
-</div>
+
 <!-- <a href="#" class='update'>Update Portfolio Value</a> -->
-<%= link_to 'Show Updated Value', '#', class:'update' %>
 <div class='container'>
   <div class='col'>
+    <div class='page-name'>
+      <span class='page-title'>Portfolio</span>
+      <span id='port-value'></span>
+    </div>
+    <%= link_to 'Show Updated Value', '#', class:'update' %>
     <% @account.stocks.each do |s| %>
       <div class="<%= s.id %>-color">
         <p class="<%= s.id %> stock"><%= "#{s.symbol}, #{s.shares} shares" %></p>
@@ -15,7 +16,7 @@
   </div>
 
   <div class='col'>
-    <p>Balance: $<%= @account.balance.to_f.round(2) %></p>
+    <span class='page-title'>Balance: $<%= @account.balance.to_f.round(2) %></span>
     <%= form_tag(api_path, method:'post') do %>
       <p><%= text_field_tag :symbol ,nil, placeholder:'Ticker', class:'form-field'%></p>
       <p><%= number_field_tag :shares, nil, placeholder:'No. Shares', class:'form-field'%></p>
