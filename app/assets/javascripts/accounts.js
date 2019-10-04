@@ -20,17 +20,27 @@ function updateVal(){
         console.log(apijson)
         let val = parseFloat(apijson['Global Quote']['05. price']) * parseFloat(stock.shares)
         portfolioVal += val
-        $(`.${stock.id}`).text(`${stock.symbol}, ${stock.shares} shares -------- ${val.toFixed(2)}`)
+        // $(`.${stock.id}`).text(`${stock.symbol}, ${stock.shares} shares -------- ${val.toFixed(2)}`)
+        $(`.${stock.id}`).html(`<div class="${stock.id} stock">
+          <span class="${stock.id}-color">${stock.symbol}</span>
+          <span>, ${stock.shares} shares--------</span>
+          <span class="${stock.id}-color">${val.toFixed(2)}</span>
+          <hr>
+        </div>`)
+
         $('#port-value').text(`($${portfolioVal.toFixed(2)})`)
 
         if (apijson['Global Quote']['05. price'] < apijson['Global Quote']['02. open']){
-          $(`.${stock.id}-color`)[0].style.backgroundColor = '#f6715f' //red, stock below open price
+          $(`.${stock.id}-color`)[0].style.color = '#801f12'
+          $(`.${stock.id}-color`)[1].style.color = '#801f12' //red, stock below open price
         }
         else if (apijson['Global Quote']['05. price'] === apijson['Global Quote']['02. open']){
-          $(`.${stock.id}-color`)[0].style.backgroundColor = '#acaeb9' //grey, at open price
+          $(`.${stock.id}-color`)[0].style.color = '#515154'
+          $(`.${stock.id}-color`)[1].style.color = '#515154' //grey, at open price
         }
         else{
-          $(`.${stock.id}-color`)[0].style.backgroundColor = '#adf759'  //green, above open price
+          $(`.${stock.id}-color`)[0].style.color = '#0f8a3c'
+          $(`.${stock.id}-color`)[1].style.color = '#0f8a3c'  //green, above open price
         }
         // console.log(apijson['Global Quote']['05. price'])
         // console.log(apijson['Global Quote']['01. symbol'])

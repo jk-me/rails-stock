@@ -1,40 +1,46 @@
 
 
 <div class="width-100">
-<p>Welcome, <%= @account.name %>!</p>
-<div class='row'>
-  <span class='page-title'>Portfolio</span>
-</div>
+  <div class='row'>
+    <span class='page-title'>Portfolio  </span>
+    <span id='port-value'>($3242894.47)</span>
+    <p>
+      <%= link_to 'Show Updated Value', '#', class:'update' %>
+    </p>
 
-<div class='row'>
-  <div class='col-md-6'>
-    <div class='page-name'>
+  </div>
 
-      <span id='port-value'></span>
-    </div>
-    <%= link_to 'Show Updated Value', '#', class:'update' %>
-    <% @account.stocks.each do |s| %>
-      <div class="<%= s.id %>-color">
-        <p class="<%= s.id %> stock"><%= "#{s.symbol}, #{s.shares} shares" %></p>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='page-name'>
+
+
       </div>
-    <% end %>
-  </div>
+      <% @account.stocks.each do |s| %>
+        <div class="<%= s.id %> stock">
+          <span class="<%=s.id%>-color"><%= "#{s.symbol}" %></span>
+          <span><%= ", #{s.shares} shares" %></span>
+          <hr>
+        </div>
 
-  <div class='col-md-6'>
-    <span class='page-title'>Balance: $<%= @account.balance.to_f.round(2) %></span>
-    <%= form_tag(api_path, method:'post') do %>
-      <p><%= text_field_tag :symbol ,nil, placeholder:'Ticker', class:'form-field'%></p>
-      <p><%= number_field_tag :shares, nil, placeholder:'No. Shares', class:'form-field'%></p>
-      <%= submit_tag 'Trade' , class: 'form-btn'%>
-    <% end %>
+      <% end %>
+    </div>
+
+    <div class='col-md-6'>
+      <p class='balance-title'>Cash - $<%= @account.balance.to_f.round(2) %></p>
+      <%= form_tag(api_path, method:'post') do %>
+        <p><%= text_field_tag :symbol ,nil, placeholder:'Ticker', class:'form-field'%></p>
+        <p><%= number_field_tag :shares, nil, placeholder:'No. Shares', class:'form-field'%></p>
+        <%= submit_tag 'Trade' , class: 'form-btn'%>
+      <% end %>
+    </div>
   </div>
-</div>
 
 </div>
 <script type="text/javascript">
-  interval()
-  window.x = setInterval(function(){interval()}, 10000)
+  // interval()
+  // window.x = setInterval(function(){interval()}, 10000)
 
-  // updateVal()
-  // setInterval(function(){updateVal()}, 60000)
+  updateVal()
+  window.x = setInterval(function(){updateVal()}, 60000)
 </script>
