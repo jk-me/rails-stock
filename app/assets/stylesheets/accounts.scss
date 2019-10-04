@@ -1,39 +1,3 @@
 // Place all the styles related to the Accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.container{
-  display:flex;
-}
-.col{
-  flex: 50%;
-}
-.page-title{
-  font-size: 36px;
-}
-
-.register{
-  display: inline-block;
-  width: 500px;
-  height: 290px;
-  margin-top: 50px;
-  border: solid 1px black;
-  text-align: center;
-}
-
-.form-field{
-  width: 80%;
-  height: 20px;
-}
-.center{
-  width: 100%;
-  text-align:center;
-}
-
-.trades{
-  width: 50%;
-}
-.trade{
-  font-size: 18px;
-  font-family: helvetica;
-}
