@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
         session[:account_id] = @account.id
         redirect_to account_path(@account)
       else
-        # flash[:error] = 'Wrong accountname or password.'
+        flash[:error] = 'Wrong accountname or password.'
         redirect_to new_session_path
       end
     else
-      # flash[:error] = 'Wrong accountname or password.'
+      flash[:error] = 'Wrong accountname or password.'
       redirect_to new_session_path
     end
   end
