@@ -15,7 +15,7 @@
   </div>
 
   <div class='col'>
-    <p>Balance: $<%= @account.balance %></p>
+    <p>Balance: $<%= @account.balance.round(2) %></p>
     <%= form_tag(api_path, method:'post') do %>
       <p>Symbol: <%= text_field_tag :symbol %></p>
       <p>No. Shares: <%= number_field_tag :shares %></p>
@@ -25,6 +25,9 @@
 
 </div>
 <script type="text/javascript">
-  updateVal()
-  setInterval(function(){updateVal()}, 60000)
+  interval()
+  setInterval(function(){interval()}, 10000)
+
+  // updateVal()
+  // setInterval(function(){updateVal()}, 60000)
 </script>

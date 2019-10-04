@@ -4,7 +4,7 @@
   <div>
     <% @transactions.each do |el| %>
       <div class='trades'>
-        <p class='trade'><%= "BUY ( #{el.symbol} ) - #{el.shares} Shares @ #{el.price} ---------- #{el.created_at}" %></p>
+        <p class='trade'><%= "BUY ( #{el.symbol} ) - #{el.shares} Shares @ #{el.price.to_f.round(2)} ---------- #{el.created_at}" %></p>
         <hr>
       </div>
 

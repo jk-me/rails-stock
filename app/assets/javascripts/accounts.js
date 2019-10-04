@@ -4,10 +4,11 @@
 $(function(){
   console.log('js loaded')
   clickToUpdate()
-  // updateVal()
-  // update()
-
 })
+
+function interval(){
+  console.log('interval is working')
+}
 
 function updateVal(){
   let portfolioVal = 0
