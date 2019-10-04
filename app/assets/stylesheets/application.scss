@@ -14,10 +14,11 @@
  *= require_self
   */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 
 body{
+  margin: 20px 80px 0px 80px;
 }
 
 .container{

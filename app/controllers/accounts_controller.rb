@@ -39,6 +39,13 @@ class AccountsController < ApplicationController
       req.params["apikey"] = Rails.application.credentials.alphav
     end
     body = JSON.parse(resp.body)
+    # byebug
+    if body['Error Message']
+      # byebug
+      flash[:error] = "Invalid Ticker Symbol"
+      redirect_to account_path(@account)
+      return
+    end
 
     stock = body["Global Quote"]
     price = stock["05. price"]
