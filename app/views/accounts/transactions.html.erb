@@ -1,12 +1,12 @@
-<p>Welcome, <%= @account.name %>!</p>
-<div class='page-name'>
-  <span class='page-title'>Transactions</span>
-</div>
+<!-- <p>Welcome, <%= @account.name %>!</p> -->
+<p class='page-title'>Transactions</p>
 
   <div>
     <% @transactions.each do |el| %>
-      <div>
-        <p><%= "BUY (#{el.symbol}) - #{el.shares} @ #{el.price} ---- #{el.created_at}" %></p>
+      <div class='trades'>
+        <p class='trade'><%= "BUY ( #{el.symbol} ) - #{el.shares} Shares @ #{el.price} ---------- #{el.created_at}" %></p>
+        <hr>
       </div>
+
     <% end %>
   </div>

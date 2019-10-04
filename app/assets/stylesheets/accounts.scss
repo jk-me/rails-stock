@@ -15,9 +15,25 @@
 .register{
   display: inline-block;
   width: 500px;
-  height: 250px;
-  margin: 15%;
+  height: 290px;
+  margin-top: 50px;
   border: solid 1px black;
   text-align: center;
+}
 
+.form-field{
+  width: 80%;
+  height: 20px;
+}
+.center{
+  width: 100%;
+  text-align:center;
+}
+
+.trades{
+  width: 50%;
+}
+.trade{
+  font-size: 18px;
+  font-family: helvetica;
 }
