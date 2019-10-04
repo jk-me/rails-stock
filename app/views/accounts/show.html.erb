@@ -1,14 +1,14 @@
 <p>Welcome, <%= @account.name %>!</p>
 <div class='page-name'>
   <span class='page-title'>Portfolio</span>
-  <span id='port-value'> ( $<%= @account.balance %> )</span>
+  <span id='port-value'></span>
 </div>
 <!-- <a href="#" class='update'>Update Portfolio Value</a> -->
-<%= link_to 'Update', '#', class:'update' %>
+<%= link_to 'Update Value', '#', class:'update' %>
 <div class='container'>
   <div class='col'>
     <% @account.stocks.each do |s| %>
-      <div>
+      <div class="<%= s.id %>-color">
         <p class="<%= s.id %> stock"><%= "#{s.symbol}, #{s.shares} shares" %></p>
       </div>
     <% end %>

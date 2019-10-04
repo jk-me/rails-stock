@@ -33,25 +33,28 @@ function showTransactions(){ //extra
 function updateVal(){
   $('.update').on('click', function(e){
     e.preventDefault()
-    // let id = $(this).data('account')
     let portfolioVal = 0
-    $.get('/stocks', function(sjson){  //first column, stock data and api data
+    $.get('/stocks', function(sjson){
       console.log(sjson, sjson[0].symbol)
       let stock = sjson[0]
       for (const stock of sjson){
         $.post("/alpharesp",{symbol: stock.symbol}, function(apijson){
+          console.log(apijson)
           let val = parseFloat(apijson['Global Quote']['05. price']) * parseFloat(stock.shares)
           portfolioVal += val
           $(`.${stock.id}`).text(`${stock.symbol}, ${stock.shares} shares -------- ${val}`)
-          console.log(apijson)
-          console.log(val)
-          console.log(portfolioVal)
           $('#port-value').text(`($${portfolioVal})`)
+
+          if (apijson['Global Quote']['05. price'] < apijson['Global Quote']['02. open']){
+            $(`.${stock.id}-color`)[0].style.backgroundColor = '#f6715f'
+          }
+          else{
+            $(`.${stock.id}-color`)[0].style.backgroundColor = '#adf759'
+          }
 
           // console.log(apijson['Global Quote']['05. price'])
           // console.log(apijson['Global Quote']['01. symbol'])
         })
-      console.log(portfolioVal)
       }
     })
   })
