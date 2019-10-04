@@ -31,7 +31,6 @@ function updateVal(){
         else{
           $(`.${stock.id}-color`)[0].style.backgroundColor = '#adf759'  //green, above open price
         }
-
         // console.log(apijson['Global Quote']['05. price'])
         // console.log(apijson['Global Quote']['01. symbol'])
       })
