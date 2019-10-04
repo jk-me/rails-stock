@@ -15,7 +15,7 @@ function updateVal(){
 function showTransactions(){ //extra
   $('.show-t').on('click', function(e){
     e.preventDefault()
-    $('.page-name').html(`<span class='page-title'>Transactions</span>`)
+    $('.page-name').html("<span class='page-title'>Transactions</span>")
 
     $.get('/transactions', function(json){
       let pagehtml = '<div>'
