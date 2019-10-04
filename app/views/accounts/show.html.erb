@@ -17,16 +17,16 @@
   <div class='col'>
     <p>Balance: $<%= @account.balance.to_f.round(2) %></p>
     <%= form_tag(api_path, method:'post') do %>
-      <p>Symbol: <%= text_field_tag :symbol %></p>
-      <p>No. Shares: <%= number_field_tag :shares %></p>
-      <%= submit_tag 'Purchase' %>
+      <p><%= text_field_tag :symbol ,nil, placeholder:'Ticker', class:'form-field'%></p>
+      <p><%= number_field_tag :shares, nil, placeholder:'No. Shares', class:'form-field'%></p>
+      <%= submit_tag 'Trade' , class:'trade-button'%>
     <% end %>
   </div>
 
 </div>
 <script type="text/javascript">
   interval()
-  window.x = setInterval(function(){interval()}, 3000)
+  window.x = setInterval(function(){interval()}, 10000)
 
   // updateVal()
   // setInterval(function(){updateVal()}, 60000)
