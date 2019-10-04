@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
   def create #post action from register form
     @account = Account.create(account_params)
     if @account.valid?
+      session[:account_id] = @account.id
       redirect_to account_path(@account)
     else
       render :new
