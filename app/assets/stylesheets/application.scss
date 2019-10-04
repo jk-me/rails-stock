@@ -19,7 +19,7 @@
 @import "bootstrap";
 
 body{
-  margin: 50px 80px 0px 80px;
+  margin: 50px 150px 0px 150px;
 }
 
 .container{
@@ -31,4 +31,7 @@ body{
 .page-title{
   font-size: 36px;
   margin-top: 20px;
+}
+.width-100{
+  width:100%;
 }

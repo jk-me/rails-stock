@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     @account = Account.find_by(email: sess_params[:email])
+    # byebug
     if @account
       if @account.authenticate(sess_params[:password])
         session[:account_id] = @account.id

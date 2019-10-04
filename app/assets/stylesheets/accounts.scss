@@ -11,7 +11,7 @@
 .register{
   display: inline-block;
   width: 500px;
-  height: 290px;
+  height: 310px;
   margin-top: 50px;
   border: solid 2px #3e435e;
   border-radius: 5px;
@@ -28,6 +28,19 @@
   height: 40px;
   border-radius: 5px;
   padding: 0px 0px 0px 5px;
+}
+
+.form-btn{
+  width: 80%;
+  height: 38px;
+  border-radius: 5px;
+  background-color: white;
+  // :hover{
+  //   background-color: #cccccc;
+  // }
+}
+.form-btn:hover{
+  background-color: #eceff1;
 }
 
 //show account
