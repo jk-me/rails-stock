@@ -1,24 +1,32 @@
-# README
+# MockPortfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A mock stock portfolio app. User can purchase stocks and manage their portfolio and balance. Made with Rails 5 and the AlphaVantage API.
 
-Things you may want to cover:
+Note: The AlphaVantage API allows up to 5 requests per minute per apikey. This app will automatically update all stock prices at 60 sec intervals (1 request per stock). This interval can be stopped by clicking 'Stop Updating' each time the Portfolio page loads.
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* Configuration
+### Prerequisites
 
-* Database creation
+This app is built on the ruby gems listed in the Gemfile, including ruby 2.5.1 and rails 5.2.1
 
-* Database initialization
+### Installing
 
-* How to run the test suite
+To deploy the app locally, run the following commands in your terminal after navigating to the root directory of this repository. You may opt to seed the database with sample data using $rake db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$bundle install
+$rake db:migrate
+$rake db:seed
+$rails s
+```
 
-* Deployment instructions
+Then navigate to localhost:3000 in your web browser.
 
-* ...
+## Author
+
+* **Jenny Kam**
+ [jk-me](https://github.com/jk-me)
+
