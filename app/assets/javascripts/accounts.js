@@ -13,8 +13,8 @@ function interval(){
 function updateVal(){
   let portfolioVal = 0
   $.get('/stocks', function(sjson){
-    console.log(sjson, sjson[0].symbol)
-    let stock = sjson[0]
+    // console.log(sjson, sjson[0].symbol)
+    // let stock = sjson[0]
     for (const stock of sjson){
       $.post("/alpharesp",{symbol: stock.symbol}, function(apijson){
         console.log(apijson)

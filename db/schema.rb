@@ -25,6 +25,40 @@ ActiveRecord::Schema.define(version: 2019_09_30_223922) do
     t.string "balance", default: "5000.00"
   end
 
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drinks_ingredients", force: :cascade do |t|
+    t.integer "drink_id"
+    t.integer "ingredient_id"
+    t.integer "parts"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "hand1"
+    t.integer "hand2"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "drink_id"
+  end
+
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
     t.integer "shares"
@@ -40,6 +74,21 @@ ActiveRecord::Schema.define(version: 2019_09_30_223922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "account_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "uid"
+    t.string "email"
+  end
+
+  create_table "users_drinks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "drink_id"
   end
 
 end

@@ -9,7 +9,7 @@
 
 # account  id: 2, name: "Bob", email: "bob@bob.com", password: pw
 # acc = Account.find_by(id:5)
-acc = Account.create({name: "pi", email: "pi@pi.com", password:"pw"})
+acc = Account.create({name: "pie", email: "pie@pie.com", password:"pw"})
 
 s1 = Stock.create({account: acc, symbol: "AAPL", shares: 100})
 s2 = Stock.create({account: acc, symbol: "IBM", shares: 50})
