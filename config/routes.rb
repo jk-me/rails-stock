@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'accounts#show'
+  root 'application#root'
   get '/logout', to: 'sessions#logout', as: 'logout'
   post '/alphavantage', to: 'accounts#alphavantage', as: 'api'
   post '/alpharesp', to: 'accounts#alpharesp', as: 'api_resp'
