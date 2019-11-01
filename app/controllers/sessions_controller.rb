@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   def logout
     session.delete(:account_id)
-    redirect_to new_account_path
+    redirect_to root_path
   end
 
   private
