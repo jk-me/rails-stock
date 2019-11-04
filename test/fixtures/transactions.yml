@@ -4,10 +4,8 @@ one:
   symbol: MyString
   shares: 1
   price: MyString
-  total_cost: MyString
 
 two:
   symbol: MyString
   shares: 1
   price: MyString
-  total_cost: MyString
