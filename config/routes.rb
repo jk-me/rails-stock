@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post '/alphavantage', to: 'accounts#alphavantage', as: 'api'
   post '/alpharesp', to: 'accounts#alpharesp', as: 'api_resp'
   get '/stocks', to: 'accounts#stocks', as: 'acc_stocks'
-  # get '/transactions', to: 'accounts#transactions', as: 'acc_trans'
 
   resources :accounts do
     resources :stocks, only: [:index]

@@ -8,7 +8,7 @@ class TransactionsController < ApplicationController
     if params[:account_id]
       @transactions = current_account.transactions
       respond_to do |f|
-        f.html {render :transactions}
+        f.html {render :index}
         f.json {render json: @transactions}
       end
     end
