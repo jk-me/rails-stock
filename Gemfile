@@ -29,8 +29,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faraday'
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '>= 2.1.0'
+gem 'bootstrap', '~> 4.3.1'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
