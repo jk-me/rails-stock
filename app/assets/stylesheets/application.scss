@@ -26,8 +26,9 @@ body{
   background-image:
   repeating-linear-gradient(45deg, var(--t) 0, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 0),
   repeating-linear-gradient(-45deg, var(--t) 0, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 0),
-  linear-gradient(to bottom left, #aedfda, #a098dd);
-  background-size: auto;
+  linear-gradient(to bottom left, #a7dbd6, #a098dd);
+  background-attachment: fixed;
+
 }
 
 h1{
@@ -37,11 +38,11 @@ h1{
 
 h4, li, p, div{
   font-family: 'Raleway', sans-serif;
-
 }
 
 .container{
-  display:flex;
+  height: 100%;
+  background-color: rgba(#f1f1f1, 0.7);
 }
 .col{
   flex: 50%;
