@@ -54,15 +54,17 @@ h4, li, p, div, .btn{
   font-family: 'Raleway', sans-serif;
   color: #cccccc;
 }
+
 .root{
   width: 100%;
+  height: 100%;
 }
 .root-head{
   padding: 100px 0px 100px 0px;
   text-align: center;
   margin: 0px auto;
+  top:50%;
 }
-
 .more-info{
   width: 60%;
   border: 1px solid #aaa;
@@ -70,6 +72,7 @@ h4, li, p, div, .btn{
   margin: 0px auto;
   padding: 20px;
 }
+
 .col{
   flex: 50%;
 }

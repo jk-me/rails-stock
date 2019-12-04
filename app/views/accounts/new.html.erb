@@ -1,7 +1,7 @@
 <div class='center'>
 
   <div class='register'>
-    <p class='page-title'>Register</p>
+    <p class='page-title'>Create an Account</p>
 
 
     <%= form_for @account do |f| %>
@@ -12,10 +12,10 @@
 
       <p><%= f.password_field :password, placeholder: 'password', class:'form-field'%></p>
 
-      <%= f.submit 'Submit',class: 'form-btn'%>
+      <%= f.submit 'Register',class: 'form-btn'%>
     <% end %>
   </div>
-  <p>To access demo account, go to 'Log In'</p>
+  <p>To access demo account, go to <%= link_to "Login", new_session_path, class:"btn btn-sm btn-outline-light" %></p>
 </div>
 
 <script type="text/javascript">
