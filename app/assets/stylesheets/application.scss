@@ -13,16 +13,13 @@
  *= require_tree .
  *= require_self
   */
-  // @import "bootstrap/variables";
-  // @import "bootstrap/mixins";
 @import "bootstrap";
+
 html, body{
   height: 100%;
 }
 
-
 body{
-  // margin: 50px 0px 0px 0px;
   background-image: radial-gradient(
     ellipse at center,
     rgba(0,50,50,1) 0%,
@@ -42,12 +39,9 @@ body{
         rgba(0, 0, 0, .3) 1px,
         rgba(255,255,255, .1) 10px
       );
-    // background-attachment: fixed;
 
   }
   background-attachment: fixed;
-  // background-position: center;
-
 }
 
 h1{
@@ -56,20 +50,25 @@ h1{
    color: #eeeeee;
 }
 
-h4, li, p, div{
+h4, li, p, div, .btn{
   font-family: 'Raleway', sans-serif;
   color: #cccccc;
 }
-
-.container{
-  // text-align: center;
-  // height: 100%;
-  // background-color: rgba(#f1f1f1, 0.7);
+.root{
+  width: 100%;
+}
+.root-head{
+  padding: 100px 0px 100px 0px;
+  text-align: center;
+  margin: 0px auto;
 }
 
-.root-head{
-  text-align: center;
-  margin: 0 auto;
+.more-info{
+  width: 60%;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin: 0px auto;
+  padding: 20px;
 }
 .col{
   flex: 50%;
