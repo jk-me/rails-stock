@@ -32,7 +32,7 @@
       <%= form_tag(api_path, method:'post') do %>
         <p><%= text_field_tag :symbol ,nil, placeholder:'Ticker', class:'form-field'%></p>
         <p><%= number_field_tag :shares, nil, placeholder:'No. Shares', class:'form-field'%></p>
-        <%= submit_tag 'Trade' , class: 'form-btn'%>
+        <%= submit_tag 'Trade' , class: 'btn btn-sm btn-outline-light form-btn'%>
       <% end %>
     </div>
   </div>
