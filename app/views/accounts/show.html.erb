@@ -4,19 +4,18 @@
 
   <div class='row'>
     <span class='page-title'>Portfolio  </span>
-    <span id='port-value'></span>
-    <p>
+    <div class="portval-cont">
+      <span id='port-value'></span>
       <%= link_to 'Show Updated Value', '#', class:'update' %>
-    </p>
+
+    </div>
+
 
   </div>
 
   <div class='row'>
     <div class='col-md-6'>
-      <div class='page-name'>
-
-
-      </div>
+    
       <% @account.stocks.each do |s| %>
         <div class="<%= s.id %> stock">
           <span class="<%=s.id%>-color"><%= "#{s.symbol}" %></span>

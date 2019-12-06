@@ -45,15 +45,18 @@
   font-size: 20px;
 }
 .stock{
-  font-size: 16px;
+  font-size: 18px;
+  border-bottom: 1px solid #888;
+  padding-top: 10px;
 }
 #port-value{
   font-size: 20px;
+  padding: 0px 10px 0px 10px;
+
 }
-//
-// .trades{
-//   padding: 5px 10px 0px 10px;
-// }
+.portval-cont{
+  margin-top: 35px;
+}
 .trade{
   font-size: 18px;
   border-bottom: 1px solid #888;
