@@ -50,11 +50,14 @@
 #port-value{
   font-size: 20px;
 }
-
-.trades{
-  width: 50%;
-}
+//
+// .trades{
+//   padding: 5px 10px 0px 10px;
+// }
 .trade{
   font-size: 18px;
-  font-family: helvetica;
+  border-bottom: 1px solid #888;
+
+  padding: 0px 10px 15px 10px;
+
 }
