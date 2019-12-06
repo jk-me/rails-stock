@@ -21,12 +21,14 @@ function updateVal(){
         let val = parseFloat(apijson['Global Quote']['05. price']) * parseFloat(stock.shares)
         portfolioVal += val
         // $(`.${stock.id}`).text(`${stock.symbol}, ${stock.shares} shares -------- ${val.toFixed(2)}`)
-        $(`.${stock.id}`).html(`<div class="${stock.id} stock">
-          <span class="${stock.id}-color">${stock.symbol}</span>
-          <span>, ${stock.shares} shares--------</span>
-          <span class="${stock.id}-color">${val.toFixed(2)}</span>
-          <hr>
-        </div>`)
+        $(`.${stock.id}`).html(`
+            <span class="${stock.id}-color">
+              ${stock.symbol}
+            </span>
+            <span>, ${stock.shares} shares--------</span>
+            <span class="${stock.id}-color">${val.toFixed(2)}</span>
+            <hr>
+        `)
 
         $('#port-value').text(`($${portfolioVal.toFixed(2)})`)
 
