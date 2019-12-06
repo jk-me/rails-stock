@@ -3,9 +3,13 @@
 
     <div class=''>
       <% @transactions.reverse.each do |el| %>
-          <p class='trade'><%= "BUY ( #{el.symbol} ) - #{el.shares} Shares @ #{el.price.to_f.round(2)} ---------- #{el.created_at}" %></p>
+        <% if el.shares < 0 %>
+          <p class='trade'><%= "SELL ( #{el.symbol} ) : #{el.shares} Shares @ #{el.price.to_f.round(2)} ---------- #{el.created_at}" %></p>
           <hr>
-
+        <% else %>
+          <p class='trade'><%= "BUY ( #{el.symbol} ) : #{el.shares} Shares @ #{el.price.to_f.round(2)} ---------- #{el.created_at}" %></p>
+          <hr>
+        <% end %>
       <% end %>
     </div>
 </div>

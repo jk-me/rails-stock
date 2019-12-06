@@ -41,9 +41,8 @@ class AccountsController < ApplicationController
       req.params['apikey'] = Rails.application.credentials.alphav
     end
     body = JSON.parse(resp.body)
-
-    if body['Error Message']
-      flash[:error] = 'Invalid Ticker Symbol'
+    if body['Error Message'] || (params[:shares]=="0")
+      flash[:error] = 'Invalid Ticker Symbol or No. Shares'
       redirect_to account_path(@account)
       return
     end
